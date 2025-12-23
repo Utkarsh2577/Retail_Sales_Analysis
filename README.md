@@ -96,6 +96,7 @@ Select category,gender,
  	count (*) AS transactions from sales
 	 Group BY category,gender;
 '''
+
 Q7 Write a SQL query to calculate the average sale for each month. Find out best selling month in each year:
 '''SQL
 SELECT YEAR , MONTH , avg_sale
@@ -110,6 +111,7 @@ GROUP BY  Extract (YEAR FROM sale_date),Extract (MONTH FROM sale_date)
 ) as ranked_sales
 WHERE rank = 1;
 '''
+
 Q8 Write a SQL query to find the top 5 customers based on the highest total sales:
 '''SQL
 SELECT customer_id,
@@ -118,7 +120,8 @@ SELECT customer_id,
 		GROUP BY customer_id
 		ORDER BY top_sales DESC
 		LIMIT (5)
- '''       
+ '''   
+ 
 Q9 Write a SQL query to find the number of unique customers who purchased items from each category:
 '''SQL
 SELECT 	
