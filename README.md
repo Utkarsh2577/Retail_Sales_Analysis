@@ -143,6 +143,7 @@ SELECT *,
 	END AS shift
 FROM sales
 '''
+
 4. Findings
 Customer Demographics: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing, Cosmetics, and Electronics.
 
