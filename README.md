@@ -68,12 +68,14 @@ Q1 **Write a SQL query to retrieve all columns for sales made on '2022-11-05'**:
 	'''
 
 Q2 **Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**:
+
 '''sql 
 Select * from sales;
 where category = 'Clothing' and quantiy >= 4 and  sale_date >= '2022-11-01' and sale_date <'2022-12-01';
 '''
 
 Q3 **Write a SQL query to calculate the total sales (total_sale) for each category**:
+
 '''sql
 Select  category, sum(total_sale) AS Total_sales
 from sales
@@ -81,6 +83,7 @@ GROUP BY category;
 '''
 
 Q4 **Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category**:
+
 '''sql
 SELECT Round (avg (age),2)  
 from sales
@@ -88,12 +91,14 @@ where category = 'Beauty';
 '''
 
 Q5 **Write a SQL query to find all transactions where the total_sale is greater than 1000**:
+
 '''sql
 select * from sales
 where total_sale > 1000;
 '''
 
 Q6 **Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category**:
+
 '''sql
 Select category,gender,
  	count (*) AS transactions from sales
@@ -101,6 +106,7 @@ Select category,gender,
 '''
 
 Q7 **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
+
 '''sql
 SELECT YEAR , MONTH , avg_sale
 FROM (
@@ -116,6 +122,7 @@ WHERE rank = 1;
 '''
 
 Q8 **Write a SQL query to find the top 5 customers based on the highest total sales**:
+
 '''sql
 SELECT customer_id,
 		SUM (total_sale) AS top_sales
@@ -126,6 +133,7 @@ SELECT customer_id,
  '''   
  
 Q9 **Write a SQL query to find the number of unique customers who purchased items from each category**:
+
 '''sql 
 SELECT 	
 	   category, 
@@ -135,6 +143,7 @@ GROUP BY category;
 '''
 
 Q10 **Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17)**:
+
 '''sql
 WITH hourly_sale 
 AS (
