@@ -45,6 +45,8 @@ Category Count: Identify all unique product categories in the dataset.
 
 Null Value Check: Check for any null values in the dataset and delete records with missing data.
 
+SQL
+
 SELECT * FROM sales
 WHERE 
     sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
@@ -60,32 +62,53 @@ WHERE
 The following SQL queries were developed to answer specific business questions:
 
 Write a SQL query to retrieve all columns for sales made on '2022-11-05':
+
+SQL
+
 '''SELECT * from sales where sale_date = '2022-11-05';'''
 
 Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022:
+
+SQL
+
 ''' Select * from sales;
 where category = 'Clothing' and quantiy >= 4 and  sale_date >= '2022-11-01' and sale_date <'2022-12-01'; '''
 
 Write a SQL query to calculate the total sales (total_sale) for each category:
+
+SQL
+
 Select  category, sum(total_sale) AS Total_sales
 from sales
 GROUP BY category;
 
 Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category:
+
+SQL
+
 SELECT Round (avg (age),2)  
 from sales
 where category = 'Beauty';
 
 Write a SQL query to find all transactions where the total_sale is greater than 1000:
+
+SQL
+
 select * from sales
 where total_sale > 1000;
 
 Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category:
+
+SQL
+
 Select category,gender,
  	count (*) AS transactions from sales
 	 Group BY category,gender;
      
 Write a SQL query to calculate the average sale for each month. Find out best selling month in each year:
+
+SQL
+
 SELECT YEAR , MONTH , avg_sale
 FROM (
 	select 
@@ -99,6 +122,9 @@ GROUP BY  Extract (YEAR FROM sale_date),Extract (MONTH FROM sale_date)
 WHERE rank = 1;
 
 Write a SQL query to find the top 5 customers based on the highest total sales:
+
+SQL
+
 SELECT customer_id,
 		SUM (total_sale) AS top_sales
 		FROM sales
@@ -107,6 +133,9 @@ SELECT customer_id,
 		LIMIT (5)
         
 Write a SQL query to find the number of unique customers who purchased items from each category:
+
+SQL
+
 SELECT 	
 	   category, 
       COUNT(DISTINCT(customer_id))
@@ -114,6 +143,9 @@ FROM sales
 GROUP BY category;
 
 Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17):
+
+SQL
+
 WITH hourly_sale 
 AS (
 SELECT *,
